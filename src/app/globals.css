@@ -1,33 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Manrope:wght@200..800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer base {
+	:root {
+		--background: 340 60% 98.04%;
+		--foreground: 330 60% 1.96%;
+		--muted: 351 63.56% 89.02%;
+		--muted-foreground: 351 48.05% 54.39%;
+		--popover: 334.74 61.29% 93.92%;
+		--popover-foreground: 330 60% 1.96%;
+		--card: 334.74 61.29% 93.92%;
+		--card-foreground: 330 60% 1.96%;
+		--border: 335.36 60.87% 81.96%;
+		--input: 334.84 60.78% 90%;
+		--primary: 335.61 60.78% 50%;
+		--primary-foreground: 340 60% 98.04%;
+		--secondary: 335.56 60.9% 73.92%;
+		--secondary-foreground: 334.84 60.78% 10%;
+		--accent: 335.56 60.9% 73.92%;
+		--accent-foreground: 334.84 60.78% 10%;
+		--destructive: 0 74.62% 46.61%;
+		--destructive-foreground: 0 0% 100%;
+		--ring: 335.63 60.76% 69.02%;
+		--radius: 0.5rem;
+	}
+
+	.dark {
+		--background: 231 51% 3%;
+		--foreground: 231 29% 99%;
+		--muted: 351.26 48.5% 16.06%;
+		--muted-foreground: 351 0% 100%;
+		--popover: 231 51% 4%;
+		--popover-foreground: 0 0% 100%;
+		--card: 231 51% 4%;
+		--card-foreground: 0 0% 100%;
+		--border: 231 9% 13%;
+		--input: 231 9% 13%;
+		--primary: 335.63 60.76% 69.02%;
+		--primary-foreground: 0 0% 100%;
+		--secondary: 177.53 55.73% 74.31%;
+		--secondary-foreground: 0 0% 0%;
+		--accent: 351.26 49.28% 40.98%;
+		--accent-foreground: 0 0% 100%;
+		--destructive: 0 74.79% 46.67%;
+		--destructive-foreground: 0 0% 100%;
+		--ring: 335.63 60.76% 69.02%;
+	}
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html {
+	font-family: 'Manrope', 'system-ui';
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+@layer base {
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
 }
