@@ -6,6 +6,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Navbar from './navbar';
 import URLToast from './url-toast';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
 	title: 'UNT HerScript',
@@ -24,7 +25,9 @@ export default function RootLayout({
 			</head>
 			<body className={cn('min-h-screen bg-background  antialiased')}>
 				<Toaster position="top-center" />
-				<URLToast />
+				<Suspense>
+					<URLToast />
+				</Suspense>
 
 				<div className="flex flex-col min-h-dvh">
 					<Navbar />
