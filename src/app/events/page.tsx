@@ -13,10 +13,14 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
 const Page = async () => {
+	const jonze_api_key = process.env.JONZE_API_KEY ?? '';
 	const options = { method: 'GET', headers: { 'x-api-key': process.env.JONZE_API_KEY ?? '' } };
 
 	const callbackUrl = process.env.NEXT_PUBLIC_URL;
-	const response = await fetch('https://dev-api.jonze.co/events', options);
+	const response = await fetch(
+		`https://${jonze_api_key.includes('prod') ? 'api' : 'dev-api'}.jonze.co/events`,
+		options
+	);
 	if (!response.ok) {
 		return <>ERROR</>;
 	}
