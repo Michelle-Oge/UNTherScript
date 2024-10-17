@@ -22,6 +22,7 @@ const Page = async () => {
 		options
 	);
 	if (!response.ok) {
+		console.log(await response.text());
 		return <>ERROR</>;
 	}
 	const result: any[] = await response.json();
